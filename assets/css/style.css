@@ -1,0 +1,96 @@
+:root {
+    --dark: #25074d;
+    --light: white;
+    --lesslight: #7a7a7a;
+}
+
+
+* {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid red;
+
+}
+
+body {
+    background: var(--light);
+    overflow: hidden;
+}
+
+p {
+    color: var(--dark);
+    font-size: 1.3em;
+}
+
+h1,
+h2 {
+    Color: var(--dark)
+}
+
+button {
+    outline: none;
+    background-color: var(--dark);
+    color: var(--light);
+    font-size: 1.3em;
+}
+
+.outer-container {
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.top-bar p {
+    float: right;
+}
+
+.top-bar button{
+    float: left;
+}
+
+.inner-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--light);
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.quiz-intro,
+main {
+    margin-bottom: 30vh;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.quiz-intro p {
+    text-align: center;
+}
+
+.quiz-intro button {
+    display: block;
+    margin: 0 auto;
+
+}
+
+.quiz-finish-screen {
+    display: none;
+}
+
+.high-scores-screen {
+    display: none;
+}
+
+header{
+    display:block;
+}
+
+main {
+    display:block
+}
+
