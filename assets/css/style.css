@@ -1,0 +1,75 @@
+:root {
+    /* Global color scheme */
+    --dark: #871387;
+    --light: #ffffff;
+    --lesslight: rgb(186, 184, 184);
+}
+
+
+* {
+    /* debugging - can see the borders of existing containers and divs. */
+    border: 1px solid var(--dark);
+    /* declare global font family */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    overflow: hidden;
+}
+
+h1,
+h2 {
+    color: var(--dark);
+}
+
+p {
+    color: var(--dark);
+    font-size: 1.3em;
+}
+
+button {
+    outline: none;
+    background-color: var(--lesslight);
+    font-size: 1.3em;
+}
+
+.outer-container {
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.top-bar p {
+    float: right;
+    background-color: var(--lesslight);
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--lesslight);
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.quiz-intro,
+main {
+    margin: 30vh 10% 0 10%;
+}
+
+.questions-screen {
+    display: none;
+}
+
+.quiz-finish-screen {
+    display: none;
+}
+
+.high-scores-screen {
+    display: none;
+}
