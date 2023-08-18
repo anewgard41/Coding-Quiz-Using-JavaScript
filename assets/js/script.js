@@ -22,8 +22,8 @@ var questions = [
 
     {
     quest: "What is the name of the indexing convention used by arrays?",
-    options: ["Periodical Indexing", "Legal Indexing", "Metadata indexing", "Zero-indexing"],
-    ans: "Zero-indexing"
+    options: ["Periodical Indexing", "Legal Indexing", "Metadata indexing", "Zero indexing"],
+    ans: "Zero indexing"
     },
 
     {
@@ -40,19 +40,45 @@ var questions = [
 
 ]
    
+// After establishing the question bank, I want to grab all necessary DOM elements for the below functions. 
+
+var startButton = document.getElementById("start-quiz-btn");
+var timerE1 = document.querySelector("#timer");
+var questionsE1 = document.querySelector("#questions-page");
+var submitBtn = document.querySelector("#submitBtn");
+var nameE1 = document.querySelector("#name");
+var responseE1 = document.querySelector("#response");
 
 
 
 
-var startButton = document.getElementById("start-quiz-button");
+
+
+
+
+// Intro Page and Quiz's initial state. Quiz's length based on the amount of questions present. 
+
+var time = questions.length * 15;
+var timerId;
+var currentQuestionIndex = 0;
+
+
 
 function startQuiz(){
-    document.getElementById("quiz-intro").style.display = "none";
-
+    // timerId = setInterval(tickTock, 1000);
+    // timerE1.textContent = time;
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("questions-page").style.display = "flex";
 
 }
 
 startButton.addEventListener("click", startQuiz);
-// timer has to start as well
 
 
+function tickTock() {
+    time--;
+    timerE1.textContent = time;
+    if (time <= 0) {
+            endQuiz()
+    }
+}

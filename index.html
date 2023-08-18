@@ -15,40 +15,37 @@
         <!-- top bar -->
         <div class="top-bar">
             <button>View HighScores</button>
-            <p>Timer: 00:00</p>
+            <p id="timer">Timer: 00:00</p>
         </div>
 
         <!-- inner div -->
         <div class="inner-container">
 
             <!-- main header/quiz intro -->
-            <header class="quiz-into">
+            <header class="quiz-intro" id="intro">
                 <h1>Welcome to the Quiz!</h1>
-                <h4>Press Start to Start the Quiz</h4>
+                <h4>Try to answer the following questions within the time limit. If you answer incorrectly, you lose time! GOOD LUCK!</h4>
                 <button id="start-quiz-btn">Start Quiz!</button>
             </header>
 
             <!-- quiz content -->
             <main>
 
-                <section class="questions-screen">
-                    <h2>Question Here</h2>
-                    <ul>
-                        <li><button>Answer 1</button></li>
-                        <li><button>Answer 2</button></li>
-                        <li><button>Answer 3</button></li>
-                        <li><button>Answer 4</button></li>
-                    </ul>
+                <section class="questions-screen" id="questions-page">
+                   <h2 id="question-words"></h2>
+                   <div id="options"></div>
+                </section>
 
                     <section class="quiz-finish-screen">
-                        <h2>Quiz Finished!</h2>
-                        <p>Your Score: 00</p>
-                        <div>
-                            <label for="">Enter Initials</label>
-                            <input type="text">
-                            <button>Submit</button>
+                        <h2>PENCILS DOWN!</h2>
+                        <p>Your Score: <span id="final-score"></span></p>
+                        <p>Enter your name to record your score: <input type="text" id="name" max="3" />
+                            <button id="submitBtn">Submit</button></p>
+                            
                         </div>
                     </section>
+
+                    <div id="response" class="response-hide"></div>
 
                     <section class="high-scores-screen">
                         <h2>Highscores</h2>
@@ -66,6 +63,7 @@
     </div>
 
     <script src="./assets/js/script.js"></script>
+    
 </body>
 
 </html>
