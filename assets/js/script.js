@@ -77,7 +77,7 @@ function getQuestions() {
     for (var i = 0; i < currentQuestion.options.length; i++) {
         var choice = currentQuestion.options[i];
         var choiceBtn = document.createElement("button");
-        // choiceNode.setAttribute("class", "choice");
+        choiceBtn.setAttribute("class", "choice");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = i + 1 + ". " + choice;
         choicesE1.appendChild(choiceBtn);
@@ -85,7 +85,11 @@ function getQuestions() {
 }
 
 function questionClick (event) {
+
     var buttonE1 = event.target;
+
+    console.log(buttonE1);
+
     if (!buttonE1.matches(".choice")) {
         return;
     }
@@ -123,6 +127,21 @@ function questionClick (event) {
             getQuestions();
         }
 }
+
+
+function endQuiz() {
+    clearInterval(timerId);
+
+    var endScreenE1 = document.getElementById("finish-screen");
+    endScreenE1.removeAttribute("class");
+
+    var finalScoreE1 = document.getElementById("final-score");
+    finalScoreE1.textContent = time;
+
+    questionsE1.setAttribute("class", "hide");
+}
+
+
 
 
 function tickTock() {
