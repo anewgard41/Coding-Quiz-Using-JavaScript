@@ -47,7 +47,7 @@ var timerE1 = document.querySelector("#timer");
 var questionsE1 = document.querySelector("#questions-page");
 var submitBtn = document.querySelector("#submitBtn");
 var nameE1 = document.querySelector("#name");
-var responseE1 = document.querySelector("#response");
+var feedbackE1 = document.querySelector("#feedback");
 var choicesE1 = document.querySelector("#options");
 
 
@@ -60,12 +60,12 @@ var currentQuestionIndex = 0;
 
 
 function startQuiz(){
-    // timerId = setInterval(tickTock, 1000);
-    // timerE1.textContent = time;
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("questions-page").style.display = "flex";
+    timerId = setInterval(tickTock, 1000);
+    timerE1.textContent = time;
+    var introScreenE1 = document.getElementById("intro");
+    introScreenE1.setAttribute("class", "hide")
+    questionsE1.removeAttribute("class");
     getQuestions();
-
 }
 
 
@@ -79,12 +79,50 @@ function getQuestions() {
         var choiceBtn = document.createElement("button");
         // choiceNode.setAttribute("class", "choice");
         choiceBtn.setAttribute("value", choice);
-        choiceBtn.textContent = i + 1 + choice;
+        choiceBtn.textContent = i + 1 + ". " + choice;
         choicesE1.appendChild(choiceBtn);
     }
 }
 
+function questionClick (event) {
+    var buttonE1 = event.target;
+    if (!buttonE1.matches(".choice")) {
+        return;
+    }
 
+    if (buttonE1.value !== questions[currentQuestionIndex].ans) {
+
+        time -= 15;
+
+        if (time < 0) {
+            time = 0;
+        }
+
+        timerE1.textContent = time;
+        
+        feedbackE1.textContent = "Wrong! The correct answer was ${questions[currentQuestionIndex].ans";
+        feedbackE1.style.color = "red"
+
+        } else {
+
+        feedbackE1.textContent = "You got it!"
+        feedbackE1.style.color = "green"
+
+        }
+
+        feedbackE1.setAttribute("class", "feedback");
+        setTimeout(function(){
+            feedbackE1.setAttribute("class", "feedback hide");
+        }, 2000);
+
+        currentQuestionIndex++;
+
+        if (time <= 0 || currentQuestionIndex === questions.length) {
+            endQuiz();
+        } else {
+            getQuestions();
+        }
+}
 
 
 function tickTock() {

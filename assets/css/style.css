@@ -81,3 +81,13 @@ main {
 .high-scores-screen {
     display: none;
 }
+
+.feedback{
+    display: flex;
+    flex-direction: column;
+}
+
+.hide{
+    display:none;
+}
+
