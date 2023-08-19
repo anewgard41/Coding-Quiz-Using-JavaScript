@@ -38,7 +38,7 @@ var questions = [
     ans: "1995"  
     }
 
-]
+];
    
 // After establishing the question bank, I want to grab all necessary DOM elements for the below functions. 
 
@@ -48,15 +48,10 @@ var questionsE1 = document.querySelector("#questions-page");
 var submitBtn = document.querySelector("#submitBtn");
 var nameE1 = document.querySelector("#name");
 var responseE1 = document.querySelector("#response");
+var choicesE1 = document.querySelector("#options");
 
 
-
-
-
-
-
-
-// Intro Page and Quiz's initial state. Quiz's length based on the amount of questions present. 
+// Variables that keep track of the quiz state. Quiz's length based on the amount of questions present. 
 
 var time = questions.length * 15;
 var timerId;
@@ -69,10 +64,25 @@ function startQuiz(){
     // timerE1.textContent = time;
     document.getElementById("intro").style.display = "none";
     document.getElementById("questions-page").style.display = "flex";
+    getQuestions();
 
 }
 
-startButton.addEventListener("click", startQuiz);
+
+function getQuestions() {
+    var currentQuestion = questions[currentQuestionIndex];
+    var promptE1 = document.getElementById("quetion-words");
+    promptE1.textContent = currentQuestion.quest;
+    choicesE1.innerHTML = " ";
+    currentQuestion.options.forEach(function(choice, i) {
+        var choiceBtn = document.createElement("button");
+        choiceBtn.setAttribute("value", choice);
+        choiceBtn.textContent = i + 1 + ". " + choice;
+        choiceBtn.onclick = questionClick;
+        choicesE1.appendChild(choiceBtn);
+    });
+}
+
 
 
 function tickTock() {
@@ -82,3 +92,7 @@ function tickTock() {
             endQuiz()
     }
 }
+
+
+
+startButton.addEventListener("click", startQuiz);
