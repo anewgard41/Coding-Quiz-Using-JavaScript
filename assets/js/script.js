@@ -80,7 +80,9 @@ function getQuestions() {
         choiceBtn.setAttribute("class", "choice");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = i + 1 + ". " + choice;
+        choiceBtn.addEventListener("click", questionClick);
         choicesE1.appendChild(choiceBtn);
+       
     }
 }
 
@@ -88,7 +90,6 @@ function questionClick (event) {
 
     var buttonE1 = event.target;
 
-    console.log(buttonE1);
 
     if (!buttonE1.matches(".choice")) {
         return;
@@ -126,6 +127,9 @@ function questionClick (event) {
         } else {
             getQuestions();
         }
+
+        buttonE1.addEventListener("click", questionClick);
+
 }
 
 
@@ -155,3 +159,4 @@ function tickTock() {
 
 
 startButton.addEventListener("click", startQuiz);
+
