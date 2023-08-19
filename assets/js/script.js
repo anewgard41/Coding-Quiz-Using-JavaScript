@@ -71,17 +71,19 @@ function startQuiz(){
 
 function getQuestions() {
     var currentQuestion = questions[currentQuestionIndex];
-    var promptE1 = document.getElementById("quetion-words");
+    var promptE1 = document.getElementById("question-words");
     promptE1.textContent = currentQuestion.quest;
     choicesE1.innerHTML = " ";
-    currentQuestion.options.forEach(function(choice, i) {
+    for (var i = 0; i < currentQuestion.options.length; i++) {
+        var choice = currentQuestion.options[i];
         var choiceBtn = document.createElement("button");
+        // choiceNode.setAttribute("class", "choice");
         choiceBtn.setAttribute("value", choice);
-        choiceBtn.textContent = i + 1 + ". " + choice;
-        choiceBtn.onclick = questionClick;
+        choiceBtn.textContent = i + 1 + choice;
         choicesE1.appendChild(choiceBtn);
-    });
+    }
 }
+
 
 
 
