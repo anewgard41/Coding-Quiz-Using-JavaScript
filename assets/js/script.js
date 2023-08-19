@@ -82,7 +82,6 @@ function getQuestions() {
         choiceBtn.textContent = i + 1 + ". " + choice;
         choiceBtn.addEventListener("click", questionClick);
         choicesE1.appendChild(choiceBtn);
-       
     }
 }
 
@@ -105,13 +104,14 @@ function questionClick (event) {
 
         timerE1.textContent = time;
         
-        feedbackE1.textContent = "Wrong! The correct answer was ${questions[currentQuestionIndex].ans";
-        feedbackE1.style.color = "red"
+        feedbackE1.textContent = "Wrong!";
+        feedbackE1.style.color = "red";
 
         } else {
 
-        feedbackE1.textContent = "You got it!"
-        feedbackE1.style.color = "green"
+        feedbackE1.textContent = "You got it!";
+        feedbackE1.style.color = "green";
+    
 
         }
 
@@ -146,8 +146,6 @@ function endQuiz() {
 }
 
 
-
-
 function tickTock() {
     time--;
     timerE1.textContent = time;
@@ -156,7 +154,38 @@ function tickTock() {
     }
 }
 
+function saveHighscore() {
+    
+    var initials = nameE1.value.trim();
 
+    if (initials !== " ") {
+
+        var highscores = JSON.parse(window.localStorage.getItem("highscores")) || []; 
+
+        var newScore = {
+            score: time,
+            initials: initials, 
+        };
+
+        highscores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    }
+}
+
+
+function checkForEnter(event) {
+
+    if (event.key === "Enter") {
+        saveHighscore();
+    }
+}
+
+
+
+nameE1.onkeyup = checkForEnter();
+
+submitBtn.onclick = saveHighscore();
 
 startButton.addEventListener("click", startQuiz);
 
