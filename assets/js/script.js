@@ -176,9 +176,11 @@ function saveHighscore() {
 
 function checkForEnter(event) {
 
-    if (event.key === "Enter") {
+    if (event === "Enter") {
         saveHighscore();
-    }
+    } 
+
+   nameE1.addEventListener("keyup", checkForEnter)
 }
 
 
