@@ -14,7 +14,7 @@
 
         <!-- top bar -->
         <div class="top-bar">
-            <button>View HighScores</button>
+            <a href="highscores.html"><button id="view-highscores">View HighScores</button></a>
             <p id="timer">Timer: 00:00</p>
         </div>
 
@@ -40,7 +40,7 @@
                 <section class="hide" id="finish-screen">
                     <h2>PENCILS DOWN!</h2>
                     <p>Your Score: <span id="final-score"></span></p>
-                    <p>Enter your name to record your score: <input type="text" id="name" max="3" />
+                    <p>Enter your initials to record your score: <input type="text" id="name" maxlength="4" />
                         <button id="submitBtn">Submit</button>
                     </p>
                 </section>
@@ -52,22 +52,12 @@
 
        
 
-        <section class="high-scores-screen">
-            <h2>Highscores</h2>
-            <ol>
-                <li>AN - 00</li>
-                <li>AN - 00</li>
-                <li>AN - 00</li>
-                <li>AN - 00</li>
-            </ol>
-        </section>
-        </main>
-
     </div>
 
     </div>
 
     <script src="./assets/js/script.js"></script>
+    
 
 </body>
 

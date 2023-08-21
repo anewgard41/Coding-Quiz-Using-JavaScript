@@ -8,7 +8,7 @@
 
 * {
     /* debugging - can see the borders of existing containers and divs. */
-    border: 1px solid var(--dark);
+    border: 1px var(--dark);
     /* declare global font family */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -70,6 +70,10 @@ main {
 
 .questions-screen {
     display: none;
+    flex-direction: column;
+}
+
+#question-words{
     flex-direction: column;
 }
 

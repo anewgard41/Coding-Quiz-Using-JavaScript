@@ -176,18 +176,18 @@ function saveHighscore() {
 
 function checkForEnter(event) {
 
-    if (event === "Enter") {
+    if (event.key === "Enter") {
         saveHighscore();
     } 
-
-   nameE1.addEventListener("keyup", checkForEnter)
+    nameE1.addEventListener("keydown", checkForEnter);
+   
 }
 
 
 
-nameE1.onkeyup = checkForEnter();
+nameE1.addEventListener("keydown", checkForEnter);
 
-submitBtn.onclick = saveHighscore();
+submitBtn.addEventListener("click", saveHighscore);
 
 startButton.addEventListener("click", startQuiz);
 
