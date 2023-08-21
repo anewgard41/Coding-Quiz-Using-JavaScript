@@ -30,7 +30,8 @@ p {
 
 button {
     outline: none;
-    background-color: var(--lesslight);
+    background-color: var(--dark);
+    color: var(--light);
     font-size: 1.3em;
 }
 
@@ -56,7 +57,7 @@ button:hover{
     flex-direction: column;
     justify-content: center;
     background: var(--lesslight);
-    height: 100%;
+    height: 50%;
     width: 50%;
     margin: 0 auto;
 }
@@ -77,13 +78,25 @@ main {
     flex-direction: column;
 }
 
+.options{
+    flex-direction: column;
+
+}
+
+.choice {
+    flex-direction: column;
+    border: 2px solid var(--dark);
+    padding: 2%;
+    margin: 2%;
+}
+
 .quiz-finish-screen {
     display: none;
     flex-direction: column;
 }
 
 .high-scores-screen {
-    display: none;
+    display: flex
 }
 
 .feedback{

@@ -3,43 +3,43 @@
 var questions = [
 
     {
-    quest: "What kind of language is JavaScript?",
-    options: ["High-Level Language", "Low-Level Language", "Hypertext Language", "Foreign Language"],
-    ans: "High-Level Language"
+        quest: "What kind of language is JavaScript?",
+        options: ["High-Level Language", "Low-Level Language", "Hypertext Language", "Foreign Language"],
+        ans: "High-Level Language"
     },
 
     {
-    quest: "What does event.stopPropagation prevent?",
-    options: ["Event Gurgling", "Dehydration", "Event Bubbling", "DOM Traversal"],
-    ans: "Event Bubbling"
+        quest: "What does event.stopPropagation prevent?",
+        options: ["Event Gurgling", "Dehydration", "Event Bubbling", "DOM Traversal"],
+        ans: "Event Bubbling"
     },
 
     {
-    quest: "In a browser, what is the global object?",
-    options: ["Object-This", "Earth", "The OS Drive", "The Window"],
-    ans: "The Window"
+        quest: "In a browser, what is the global object?",
+        options: ["Object-This", "Earth", "The OS Drive", "The Window"],
+        ans: "The Window"
     },
 
     {
-    quest: "What is the name of the indexing convention used by arrays?",
-    options: ["Periodical Indexing", "Legal Indexing", "Metadata indexing", "Zero indexing"],
-    ans: "Zero indexing"
+        quest: "What is the name of the indexing convention used by arrays?",
+        options: ["Periodical Indexing", "Legal Indexing", "Metadata indexing", "Zero indexing"],
+        ans: "Zero indexing"
     },
 
     {
-    quest: "What does API stand for?",
-    options: ["Applicable Program Index", "Application Programming Interface", "Applied Pressure Indicator", "Aftermath Pomegranate Incineration"],
-    ans: "Application Programming Interface" 
+        quest: "What does API stand for?",
+        options: ["Applicable Program Index", "Application Programming Interface", "Applied Pressure Indicator", "Aftermath Pomegranate Incineration"],
+        ans: "Application Programming Interface"
     },
 
     {
-    quest: "History Question! When was JavaScript released?",
-    options: ["1 AD", "1989", "2000", "1995"],
-    ans: "1995"  
+        quest: "History Question! When was JavaScript released?",
+        options: ["1 AD", "1989", "2000", "1995"],
+        ans: "1995"
     }
 
 ];
-   
+
 // After establishing the question bank, I want to grab all necessary DOM elements for the below functions. 
 
 var startButton = document.getElementById("start-quiz-btn");
@@ -59,7 +59,7 @@ var currentQuestionIndex = 0;
 
 
 
-function startQuiz(){
+function startQuiz() {
     timerId = setInterval(tickTock, 1000);
     timerE1.textContent = time;
     var introScreenE1 = document.getElementById("intro");
@@ -85,7 +85,7 @@ function getQuestions() {
     }
 }
 
-function questionClick (event) {
+function questionClick(event) {
 
     var buttonE1 = event.target;
 
@@ -103,32 +103,32 @@ function questionClick (event) {
         }
 
         timerE1.textContent = time;
-        
+
         feedbackE1.textContent = "Wrong!";
         feedbackE1.style.color = "red";
 
-        } else {
+    } else {
 
         feedbackE1.textContent = "You got it!";
         feedbackE1.style.color = "green";
-    
 
-        }
 
-        feedbackE1.setAttribute("class", "feedback");
-        setTimeout(function(){
-            feedbackE1.setAttribute("class", "feedback hide");
-        }, 2000);
+    }
 
-        currentQuestionIndex++;
+    feedbackE1.setAttribute("class", "feedback");
+    setTimeout(function () {
+        feedbackE1.setAttribute("class", "feedback hide");
+    }, 2000);
 
-        if (time <= 0 || currentQuestionIndex === questions.length) {
-            endQuiz();
-        } else {
-            getQuestions();
-        }
+    currentQuestionIndex++;
 
-        buttonE1.addEventListener("click", questionClick);
+    if (time <= 0 || currentQuestionIndex === questions.length) {
+        endQuiz();
+    } else {
+        getQuestions();
+    }
+
+    buttonE1.addEventListener("click", questionClick);
 
 }
 
@@ -150,21 +150,21 @@ function tickTock() {
     time--;
     timerE1.textContent = time;
     if (time <= 0) {
-            endQuiz()
+        endQuiz()
     }
 }
 
 function saveHighscore() {
-    
+
     var initials = nameE1.value.trim();
 
     if (initials !== " ") {
 
-        var highscores = JSON.parse(window.localStorage.getItem("highscores")) || []; 
+        var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
 
         var newScore = {
             score: time,
-            initials: initials, 
+            initials: initials,
         };
 
         highscores.push(newScore);
@@ -178,9 +178,9 @@ function checkForEnter(event) {
 
     if (event.key === "Enter") {
         saveHighscore();
-    } 
+    }
     nameE1.addEventListener("keydown", checkForEnter);
-   
+
 }
 
 
