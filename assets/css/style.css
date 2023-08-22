@@ -8,19 +8,30 @@
 
 * {
     /* debugging - can see the borders of existing containers and divs. */
-    border: 1px var(--dark);
+    /* border: 1px solid var(--dark); */
+
+
     /* declare global font family */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 body {
     background-color: var(--light);
     overflow: hidden;
 }
 
+/* declaring font sizes, colors, and weights. */
+
 h1,
 h2 {
     color: var(--dark);
+}
+
+ol {
+    color: var(--dark);
+    font-size: larger;
+    font-weight: 700;
 }
 
 p {
@@ -28,16 +39,21 @@ p {
     font-size: 1.3em;
 }
 
+/* stylizing buttons */
+
 button {
     outline: none;
     background-color: var(--dark);
     color: var(--light);
     font-size: 1.3em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
 }
+
+/* Giving initial padding and height to outer div, making it a flexbox. */
 
 .outer-container {
     padding: 10px;
@@ -47,9 +63,11 @@ button:hover{
     justify-content: start;
 }
 
+/* Putting timer in top right corner */
+
 .top-bar p {
     float: right;
-    background-color: var(--lesslight);
+    background-color: var(--light);
 }
 
 .inner-container {
@@ -60,12 +78,14 @@ button:hover{
     height: 50%;
     width: 50%;
     margin: 0 auto;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .quiz-intro,
 main {
     margin: 10vh 10% 0 10%;
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
@@ -74,13 +94,12 @@ main {
     flex-direction: column;
 }
 
-#question-words{
+#question-words {
     flex-direction: column;
 }
 
-.options{
+.options {
     flex-direction: column;
-
 }
 
 .choice {
@@ -99,12 +118,13 @@ main {
     display: flex
 }
 
-.feedback{
+.feedback {
     display: flex;
     flex-direction: column;
 }
 
-.hide{
-    display:none;
-}
+/* Hide class applied to hide quiz elements that aren't the landing page.*/
 
+.hide {
+    display: none;
+}

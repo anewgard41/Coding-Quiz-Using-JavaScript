@@ -57,7 +57,7 @@ var time = questions.length * 15;
 var timerId;
 var currentQuestionIndex = 0;
 
-
+// Start quiz starts the timer and hides the front page/reveals the questions page using set and remove attribute. 
 
 function startQuiz() {
     timerId = setInterval(tickTock, 1000);
@@ -68,6 +68,7 @@ function startQuiz() {
     getQuestions();
 }
 
+// getQuestions function loops through the array of questions and answers and creates the answers list as buttons. 
 
 function getQuestions() {
     var currentQuestion = questions[currentQuestionIndex];
@@ -84,6 +85,8 @@ function getQuestions() {
         choicesE1.appendChild(choiceBtn);
     }
 }
+
+// questionClick compares answer choice against the provided answer in the questions object. If incorrect, time is deducted and feedback is shown with red styling. If the answer is correct, green feedback is shown. The final if-statement will end the quiz if the timer reaches zero, or if the currentQuestionIndex goes past the length of the questions array. 
 
 function questionClick(event) {
 
@@ -112,7 +115,6 @@ function questionClick(event) {
         feedbackE1.textContent = "You got it!";
         feedbackE1.style.color = "green";
 
-
     }
 
     feedbackE1.setAttribute("class", "feedback");
@@ -132,6 +134,7 @@ function questionClick(event) {
 
 }
 
+// endQuiz clears the value of timerId, and reveals the end screen using setAttribute. 
 
 function endQuiz() {
     clearInterval(timerId);
@@ -145,6 +148,7 @@ function endQuiz() {
     questionsE1.setAttribute("class", "hide");
 }
 
+// timer. endQuiz function runs if timer equals or falls below zero. 
 
 function tickTock() {
     time--;
@@ -153,6 +157,8 @@ function tickTock() {
         endQuiz()
     }
 }
+
+// Use JSON to parse the highscore string. Initials and score saved as an object in local storage. 
 
 function saveHighscore() {
 
@@ -173,19 +179,19 @@ function saveHighscore() {
     }
 }
 
+// checks if user uses enter key to enter their initials and highscore value into local storage. 
 
 function checkForEnter(event) {
 
     if (event.key === "Enter") {
         saveHighscore();
     }
-    nameE1.addEventListener("keydown", checkForEnter);
 
 }
 
+// Event listeners for the buttons keyevents. 
 
-
-nameE1.addEventListener("keydown", checkForEnter);
+nameE1.addEventListener("keyup", checkForEnter);
 
 submitBtn.addEventListener("click", saveHighscore);
 
