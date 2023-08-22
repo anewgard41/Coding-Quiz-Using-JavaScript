@@ -14,7 +14,7 @@ Finally, we locally stored initials and score values using JSON parsing and stri
 
 Thanks so much for reading, and hope you enjoy. Cheers!
 
-#Credits
+# Credits
 
 I want to give a massive shout out to all the people at AskBCS for helping me debug my code over and over again. Couldn't have done it without y'all! 
 
